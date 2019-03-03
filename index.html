@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>Webcam Drumkit</title>
+  </head>
+  <body>
+
+    <div id="main">
+
+      <h1>Controll a drum kit with your webcam !</h1>
+      <p>
+        This project was made only using p5.js.
+        You can <b>drag pads</b> where you want, and <b>change their size</b> with the 'Pad size' slider.
+        Check source code :
+      </p>
+
+      <div id="canvas_wrapper">
+
+        <div id="sliders">
+
+            <span>Pad size</span>
+            <input oninput="pad_size = this.value" type="range" min="10" max="200" value="50" />
+
+            <span>Kick sensitivity</span>
+            <input oninput="pads[0].threeshold = this.value" type="range" min="10" max="200" value="100" />
+
+            <span>Snare sensitivity</span>
+            <input oninput="pads[1].threeshold = this.value" type="range" min="10" max="200" value="100" />
+
+            <span>Open hi-hat sensitivity</span>
+            <input oninput="pads[2].threeshold = this.value" type="range" min="10" max="200" value="100" />
+
+            <span>Hi-hat sensitivity</span>
+            <input oninput="pads[3].threeshold = this.value" type="range" min="10" max="200" value="100" />
+
+            <span>Symbal sensitivity</span>
+            <input oninput="pads[4].threeshold = this.value" type="range" min="10" max="200" value="100" />
+
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+
+  <script src="p5/p5.min.js"></script>
+  <script src="p5/addons/p5.sound.min.js"></script>
+  <script src="p5/addons/p5.dom.min.js"></script>
+  <script src="script.js"></script>
+
+</html>
