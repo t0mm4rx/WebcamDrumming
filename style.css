@@ -9,6 +9,7 @@ body, html {
 
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #DDD;
@@ -19,6 +20,8 @@ body {
   background-color: #FFF;
   padding: 30px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-top: 4px solid #176da4;
+  border-radius: 2px;
 }
 
 #canvas_wrapper {
@@ -41,4 +44,44 @@ body {
 }
 .input > span {
   margin-right: 10px;
+}
+
+@media (max-width: 1000px) {
+
+  #canvas_wrapper{
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+.button {
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
+  font-weight: normal;
+  color: #176da4;
+  display: inline-block;
+  border-radius: 3px;
+  transition: all .1s ease-in-out;
+  border: 3px solid #176da4;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+h2 > a {
+  text-decoration: none;
+  color: black;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+  transition: all .3s ease-in-out;
+}
+
+h2 > a:hover {
+  transform: scale(1.1);
 }

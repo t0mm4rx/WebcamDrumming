@@ -13,16 +13,16 @@ let pads = [
     label: "Kick",
     x: 380,
     y: 260,
-    threeshold: 60,
+    threeshold: 120,
     sound: null,
     triggered: false
-  },
+  }/*,
   {
     name: "snare.wav",
     label: "Snare",
     x: 100,
     y: 260,
-    threeshold: 60,
+    threeshold: 120,
     sound: null,
     triggered: false
   },
@@ -31,7 +31,7 @@ let pads = [
     label: "Open HiHat",
     x: 380,
     y: 60,
-    threeshold: 60,
+    threeshold: 120,
     sound: null,
     triggered: false
   },
@@ -40,7 +40,7 @@ let pads = [
     label: "Closed HiHat",
     x: 240,
     y: 60,
-    threeshold: 60,
+    threeshold: 120,
     sound: null,
     triggered: false
   },
@@ -49,10 +49,10 @@ let pads = [
     label: "Symbal",
     x: 100,
     y: 60,
-    threeshold: 60,
+    threeshold: 120,
     sound: null,
     triggered: false
-  },
+  }*/
 ]
 
 function preload()
@@ -133,6 +133,17 @@ function draw()
       }
     }
 
+    // debug
+    noStroke()
+    var pixels = get_pixel_area(pads[0].x + pad_size / 2, pads[0].y - pad_size / 2, pad_size, pad_size)
+
+    for (var i = 0; i < pixels.length; i++)
+    {
+
+      fill(pixels[i])
+      rect(i % pad_size, Math.floor(i / pad_size), 1, 1)
+    }
+
     pop()
 
 }
@@ -168,7 +179,7 @@ function get_pixel_area(x , y, w, h)
   {
     for (var j = 0; j < h; j += 1)
     {
-      res.push(get_pixel(x + i, y + j))
+      res.push(get_pixel(x + j, y + i))
     }
 
   }
@@ -179,7 +190,7 @@ function get_pixel_area(x , y, w, h)
 function get_pixel(x, y)
 {
 
-  let index = (x + y * width) * 4
+  let index = ((width - x) + y * width) * 4
   // return ((pixels[index] + pixels[index + 1] + pixels[index + 2]) / 3)
   return ((pixels[index] + pixels[index + 1] + pixels[index + 2]) / 3)
 

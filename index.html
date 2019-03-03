@@ -3,10 +3,14 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webcam Drumkit</title>
   </head>
   <body>
+
+    <h2><a href="https://tommarx.fr">Tom Marx</a></h2>
 
     <div id="main">
 
@@ -14,7 +18,7 @@
       <p>
         This project was made only using p5.js.
         You can <b>drag pads</b> where you want, and <b>change their size</b> with the 'Pad size' slider.
-        Check source code :
+        Check source code : <a class="button" href="https://github.com/t0mm4rx/WebcamDrumming" target="_blank"><i class="fas fa-external-link-alt"></i>  Github repo</a>
       </p>
 
       <div id="canvas_wrapper">
@@ -25,19 +29,19 @@
             <input oninput="pad_size = this.value" type="range" min="10" max="200" value="50" />
 
             <span>Kick sensitivity</span>
-            <input oninput="pads[0].threeshold = this.value" type="range" min="10" max="200" value="100" />
+            <input oninput="pads[0].threeshold = this.value" type="range" min="10" max="200" value="120" />
 
             <span>Snare sensitivity</span>
-            <input oninput="pads[1].threeshold = this.value" type="range" min="10" max="200" value="100" />
+            <input oninput="pads[1].threeshold = this.value" type="range" min="10" max="200" value="120" />
 
             <span>Open hi-hat sensitivity</span>
-            <input oninput="pads[2].threeshold = this.value" type="range" min="10" max="200" value="100" />
+            <input oninput="pads[2].threeshold = this.value" type="range" min="10" max="200" value="120" />
 
             <span>Hi-hat sensitivity</span>
-            <input oninput="pads[3].threeshold = this.value" type="range" min="10" max="200" value="100" />
+            <input oninput="pads[3].threeshold = this.value" type="range" min="10" max="200" value="120" />
 
             <span>Symbal sensitivity</span>
-            <input oninput="pads[4].threeshold = this.value" type="range" min="10" max="200" value="100" />
+            <input oninput="pads[4].threeshold = this.value" type="range" min="10" max="200" value="120" />
 
         </div>
 
