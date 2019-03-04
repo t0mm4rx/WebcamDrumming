@@ -7,6 +7,8 @@ const undetected_color = [230, 100, 100]
 
 let drag = null
 
+let dark_skin_mode = false
+
 let pads = [
   {
     name: "kick.wav",
@@ -125,12 +127,23 @@ function draw()
 
     for (var pad of pads)
     {
-      if (get_pad_grayscale(pad) > pad.threeshold)
+      if (!dark_skin_mode)
       {
-        toggle_pad(pad)
+        if (get_pad_grayscale(pad) > pad.threeshold)
+        {
+          toggle_pad(pad)
+        } else {
+          pad.triggered = false
+        }
       } else {
-        pad.triggered = false
+        if (get_pad_grayscale(pad) < pad.threeshold)
+        {
+          toggle_pad(pad)
+        } else {
+          pad.triggered = false
+        }
       }
+
     }
 
     // debug

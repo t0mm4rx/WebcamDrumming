@@ -85,3 +85,7 @@ h2 > a {
 h2 > a:hover {
   transform: scale(1.1);
 }
+
+.fa-drum {
+  color: #176da4;
+}

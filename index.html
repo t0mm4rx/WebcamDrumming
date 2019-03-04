@@ -14,16 +14,20 @@
 
     <div id="main">
 
-      <h1>Controll a drum kit with your webcam !</h1>
+      <h1><i class="fas fa-drum"></i> Control a drum kit with your webcam !</h1>
       <p>
         This project was made only using p5.js.
-        You can <b>drag pads</b> where you want, and <b>change their size</b> with the 'Pad size' slider.
-        Check source code : <a class="button" href="https://github.com/t0mm4rx/WebcamDrumming" target="_blank"><i class="fas fa-external-link-alt"></i>  Github repo</a>
+        You can <b>drag pads</b> where you want, and <b>change their size</b> with the 'Pad size' slider.<br />
+        The <b>background behind you lightness should be the most different possible than your skin tone</b>. If your skin tone is darker than the background, check the dark skin mode.<br />
+        <i class="fab fa-github"></i> Check source code : <a class="button" href="https://github.com/t0mm4rx/WebcamDrumming" target="_blank"><i class="fas fa-external-link-alt"></i>  Github repo</a>
       </p>
 
       <div id="canvas_wrapper">
 
         <div id="sliders">
+
+            <span>Dark skin mode</span>
+            <input type="checkbox" onchange="dark_skin_mode = this.checked" />
 
             <span>Pad size</span>
             <input oninput="pad_size = this.value" type="range" min="10" max="200" value="50" />
