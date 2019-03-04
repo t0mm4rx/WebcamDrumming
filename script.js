@@ -16,7 +16,7 @@ let pads = [
     threeshold: 120,
     sound: null,
     triggered: false
-  }/*,
+  },
   {
     name: "snare.wav",
     label: "Snare",
@@ -52,7 +52,7 @@ let pads = [
     threeshold: 120,
     sound: null,
     triggered: false
-  }*/
+  }
 ]
 
 function preload()
@@ -134,15 +134,8 @@ function draw()
     }
 
     // debug
-    noStroke()
-    var pixels = get_pixel_area(pads[0].x + pad_size / 2, pads[0].y - pad_size / 2, pad_size, pad_size)
-
-    for (var i = 0; i < pixels.length; i++)
-    {
-
-      fill(pixels[i])
-      rect(i % pad_size, Math.floor(i / pad_size), 1, 1)
-    }
+    // var pixels_d = get_pixel_area(pad.x - Math.floor(pad_size / 2), pad.y - Math.floor(pad_size / 2), pad_size, pad_size)
+    // draw_pixel_array(pixels_d)
 
     pop()
 
@@ -163,7 +156,7 @@ function mousePressed()
 
 function get_mouse_pos()
 {
-  return [width - mouseX, mouseY]
+  return [Math.floor(width - mouseX), Math.floor(mouseY)]
 }
 
 function mouseReleased()
@@ -171,13 +164,13 @@ function mouseReleased()
   drag = 0
 }
 
-function get_pixel_area(x , y, w, h)
+function get_pixel_area(x, y, w, h)
 {
   let res = []
 
-  for (var i = 0; i < w; i += 1)
+  for (var i = 0; i < h; i += 1)
   {
-    for (var j = 0; j < h; j += 1)
+    for (var j = 0; j < w; j += 1)
     {
       res.push(get_pixel(x + j, y + i))
     }
@@ -218,7 +211,7 @@ function get_pad(name)
 
 function get_pad_grayscale(pad)
 {
-  return get_grayscale(get_pixel_area(width - pad.x - pad_size / 2, pad.y - pad_size / 2, pad_size, pad_size))
+  return get_grayscale(get_pixel_area(pad.x - Math.floor(pad_size / 2), pad.y - Math.floor(pad_size / 2), pad_size, pad_size))
 }
 
 function toggle_pad(pad)
@@ -230,4 +223,14 @@ function toggle_pad(pad)
     pad.sound.play()
   }
 
+}
+
+function draw_pixel_array(pixels_d)
+{
+  noStroke()
+  for (var i = 0; i < pixels_d.length; i++)
+  {
+    fill(pixels_d[i])
+    rect(i % pad_size, Math.floor(i / pad_size), 1, 1)
+  }
 }
